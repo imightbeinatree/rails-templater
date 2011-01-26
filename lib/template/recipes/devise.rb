@@ -2,7 +2,7 @@ gem 'devise'
 gem 'hpricot'
 gem 'ruby_parser'
 
-stategies << lambda do 
+post_bundler_strategies << lambda do 
   generate 'devise:install'
   generate 'devise User'
   generate 'devise:views'

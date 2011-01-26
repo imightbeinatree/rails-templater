@@ -1,0 +1,26 @@
+development:
+  adapter: mysql
+  encoding: utf8
+  database: project_name_development
+  username: root
+  password:
+  host: localhost
+
+test: &test
+  adapter: mysql
+  encoding: utf8
+  database: project_name_test
+  username: root
+  password:
+  host: localhost      
+
+production:
+  adapter: mysql
+  encoding: utf8  
+  database: project_name_production
+  username: root
+  password:
+  host: localhost      
+
+cucumber: &CUCUMBER
+  <<: *test

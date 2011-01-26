@@ -12,6 +12,9 @@ required_recipes.each {|required_recipe| apply recipe(required_recipe)}
 
 apply recipe('remarkable') if @template_options[:db] == "mongodb"
 
+apply recipe('thing') if @template_options[:thing]
+apply recipe('usething') if @template_options[:user_thing]
+
 say("\nInitial generation complete\n", Thor::Shell::Color::YELLOW)
 
 run 'bundle install'

@@ -26,6 +26,8 @@ module Rails
           else
             :none
         end
+        @template_options[:thing] = yes?("Have a thing? [y|n]", Thor::Shell::Color::BLUE)
+        @template_options[:user_thing] = yes?("Have a user thing? [y|n]", Thor::Shell::Color::BLUE)
       end
 
       def recipe(name)

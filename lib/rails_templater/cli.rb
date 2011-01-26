@@ -6,6 +6,7 @@ module RailsTemplater
     desc "Generates a new Rails application with templater'"
 
     def run_templater
+      #TODO: how do we determine whether they want mongodb or mysql before we run this so we can create it correctly
       #this is what they want it to be if you use mongodb
       system("rails new #{application_name} -JOT -m #{RailsTemplater::template_path}")
       

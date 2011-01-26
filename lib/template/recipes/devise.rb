@@ -1,3 +1,5 @@
+#TODO: move the text into template files
+
 gem 'devise'
 gem 'hpricot'
 gem 'ruby_parser'

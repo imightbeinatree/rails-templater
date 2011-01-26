@@ -28,6 +28,9 @@ module Rails
         end
         @template_options[:thing] = yes?("Have a thing? [y|n]", Thor::Shell::Color::BLUE)
         @template_options[:user_thing] = yes?("Have a user thing? [y|n]", Thor::Shell::Color::BLUE)
+        if yes?("Want to include your logo and have a URL for it? [y|n]", Thor::Shell::Color::BLUE)        
+          @template_options[:logo_image] = ask("Let's have that image URL: ", Thor::Shell::Color::BLUE)
+        end
       end
 
       def recipe(name)

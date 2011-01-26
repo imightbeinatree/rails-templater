@@ -12,6 +12,8 @@ required_recipes.each {|required_recipe| apply recipe(required_recipe)}
 
 apply recipe('remarkable') if @template_options[:db] == "mongodb"
 
+apply recipe('logo') if @template_options[:logo_image]
+
 apply recipe('thing') if @template_options[:thing]
 apply recipe('userthing') if @template_options[:user_thing]
 

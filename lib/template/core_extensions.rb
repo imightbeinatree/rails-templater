@@ -15,6 +15,8 @@ module Rails
       end
 
       def load_options
+        use_mysql = yes?("Would you like to switch the default database from mongodb to mysql?  [y|n]: ", Thor::Shell::Color::BLUE)
+        @template_options[:db] = use_mysql ? "mysql" : "mongodb"
         say "Would you like to use a design framework?\n", Thor::Shell::Color::BLUE
         print_table [ ['Option','Framework'], ['1', 'Compass with blueprint semantic'] ], :ident => 2
         design_input = ask("Option: ", Thor::Shell::Color::BLUE)

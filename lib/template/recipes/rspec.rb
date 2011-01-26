@@ -7,6 +7,8 @@ post_bundler_strategies << lambda do
     
   gsub_file spec_helper_path, 'config.fixture_path = "#{::Rails.root}/spec/fixtures"', ''
   gsub_file spec_helper_path, /(config.use_transactional_fixtures = true)/, '# \1'
-  inject_into_file spec_helper_path, load_snippet('mongoid', 'rspec'), :after => "# config.use_transactional_fixtures = true\n"
+  if @template_options[:db] == "mongodb"
+    inject_into_file spec_helper_path, load_snippet('mongoid', 'rspec'), :after => "# config.use_transactional_fixtures = true\n"
+  end
 
 end

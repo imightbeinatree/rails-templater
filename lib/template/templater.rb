@@ -1,15 +1,18 @@
 require File.join(File.dirname(__FILE__), 'core_extensions.rb')
 
 initialize_templater
+load_options
+apply recipe('default')
 
-required_recipes = %w(default mongoid jquery haml rspec factory_girl remarkable)
+apply recipe('mysql') if @template_options[:db] == "mysql"
+apply recipe('mongoid') if @template_options[:db] == "mongodb"
+
+required_recipes = %w(jquery haml rspec factory_girl  cucumber design)
 required_recipes.each {|required_recipe| apply recipe(required_recipe)}
 
-say("\nInitial generation complete\n", Thor::Shell::Color::YELLOW)
+apply recipe('remarkable') if @template_options[:db] == "mongodb"
 
-load_options
-apply(recipe('cucumber')) if yes?("\nWould you like to add integration testing with Cucumber? [y|n]: ", Thor::Shell::Color::BLUE)  
-apply recipe('design')
+say("\nInitial generation complete\n", Thor::Shell::Color::YELLOW)
 
 run 'bundle install'
 

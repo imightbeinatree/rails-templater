@@ -6,7 +6,10 @@ module RailsTemplater
     desc "Generates a new Rails application with templater'"
 
     def run_templater
-      system("rails new #{application_name} -JOT -m #{RailsTemplater::template_path}")
+      #this is what they want it to be if you use mongodb
+      #system("rails new #{application_name} -JOT -m #{RailsTemplater::template_path}")
+
+      system("rails new #{application_name} -d=mysql -J -m #{RailsTemplater::template_path}")
     end
 
   end

@@ -10,7 +10,15 @@ if template_options[:design] == :compass
   post_bundler_strategies << lambda do
     puts "Beginning Compass setup"
     run compass_command
-    puts "Compass has been setup"
+    application_layout_modification = <<-END    
+
+  = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
+  = stylesheet_link_tag 'compiled/print.css', :media => 'print'
+  /[if lt IE 8]
+  = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+END
+    inject_into_file 'app/views/layouts/application.html.haml', application_layout_modification, :after => '%head'
+    puts "Compass has been setup"    
   end
   
 end

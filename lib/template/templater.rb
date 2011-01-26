@@ -7,7 +7,7 @@ apply recipe('default')
 apply recipe('mysql') if @template_options[:db] == "mysql"
 apply recipe('mongoid') if @template_options[:db] == "mongodb"
 
-required_recipes = %w(jquery haml rspec factory_girl  cucumber design)
+required_recipes = %w(jquery haml rspec factory_girl  cucumber design devise)
 required_recipes.each {|required_recipe| apply recipe(required_recipe)}
 
 apply recipe('remarkable') if @template_options[:db] == "mongodb"

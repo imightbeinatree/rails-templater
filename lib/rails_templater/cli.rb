@@ -7,9 +7,9 @@ module RailsTemplater
 
     def run_templater
       #this is what they want it to be if you use mongodb
-      #system("rails new #{application_name} -JOT -m #{RailsTemplater::template_path}")
+      system("rails new #{application_name} -JOT -m #{RailsTemplater::template_path}")
       
-      system("rails new #{application_name} -J -m #{RailsTemplater::template_path}")
+      #system("rails new #{application_name} -J -m #{RailsTemplater::template_path}")
     end
 
   end

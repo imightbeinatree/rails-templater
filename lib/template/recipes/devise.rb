@@ -16,16 +16,16 @@ post_bundler_strategies << lambda do
 	:after => '         :recoverable, :rememberable, :trackable, :validatable\n'
 
   application_layout_modification = <<-END
+
   .user_nav
     - if user_signed_in?
       = link_to "Sign out", destroy_user_session_path
     - else
       = link_to "Sign up", new_user_registration_path
       or
-      = link_to "sign in", new_user_session_path
+      = link_to "Sign in", new_user_session_path
   END
 
-  inject_into_file 'app/views/layouts/application.html.haml', application_layout_modification, 
-	:after => '%body\n'
+  inject_into_file 'app/views/layouts/application.html.haml', application_layout_modification,:after => '%body'
 end
 
